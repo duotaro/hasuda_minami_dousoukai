@@ -14,23 +14,23 @@ export default function Detail({  }) {
                 </div>
                 <div className="col-lg-3 col-md-6 text-center">
                     <div className="mt-5">
-                        <div className="mb-2"><i className="bi-laptop fs-1 text-primary"></i></div>
-                        <h3 className="h4 mb-2">開催場所</h3>
-                        <p className="text-muted mb-0">The Royal Dynasty (最寄り：大宮/さいたま新都心)</p>
+                        <div className="mb-2"><i className="bi-globe fs-1 text-primary"></i></div>
+                        <h3 className="h4 mb-2">開催時刻</h3>
+                        <p className="text-muted mb-0">17:00〜21:00</p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 text-center">
                     <div className="mt-5">
-                        <div className="mb-2"><i className="bi-globe fs-1 text-primary"></i></div>
-                        <h3 className="h4 mb-2">Ready to Publish</h3>
-                        <p className="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                        <div className="mb-2"><i className="bi-laptop fs-1 text-primary"></i></div>
+                        <h3 className="h4 mb-2">開催場所</h3>
+                        <p className="text-muted mb-0"><a href="https://kitchen.dkdining.com/oomiya/" target="_blank">大宮キッチン</a></p>
                     </div>
                 </div>
                 <div className="col-lg-3 col-md-6 text-center">
                     <div className="mt-5">
                         <div className="mb-2"><i className="bi-heart fs-1 text-primary"></i></div>
-                        <h3 className="h4 mb-2">Made with Love</h3>
-                        <p className="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                        <h3 className="h4 mb-2">会費</h3>
+                        <p className="text-muted mb-0">5000円</p>
                     </div>
                 </div>
             </div>

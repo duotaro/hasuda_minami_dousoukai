@@ -16,7 +16,11 @@ firebaseにあらかじめ同級生のデータを用意。
 項目はID/NAME/PASSWORD
 PASSWORDはUUIDで作成
 https://qiita.com/mininobu/items/ba08fb9a602e1392f5bd
-CSV出力。あとで使う
+CSV出力。あとで使う。
+メールアドレスとか使いたくなかったので、firebase-authを使わない想定だった。
+サイト自体は鍵付きだし、個人情報も名前くらいだったのでセキュリティもあまり気にしなくていいかなと
+
+
 
 ### firebaseの設定
 以下のページを参考にfirestoreを使えるようにする
@@ -72,3 +76,15 @@ to vercel
 ```
 $ yarn deploy
 ```
+
+
+
+
+
+
+
+# TODO
+一覧で未ログインの場合の処理・動きを考える
+
+全体的なUX考える
+

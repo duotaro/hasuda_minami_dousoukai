@@ -1,5 +1,6 @@
 import "../styles/styles.css";
 import Script from "next/script";
+import { FirebaseContextProvider } from '../context/firebase.context.js'
 
 
 function MyApp({ Component, pageProps }) {
@@ -15,7 +16,9 @@ function MyApp({ Component, pageProps }) {
       strategy="afterInteractive"
       src="https://cdn.startbootstrap.com/sb-forms-latest.js"
     />
-    <Component {...pageProps} />
+    <FirebaseContextProvider>
+      <Component {...pageProps} />
+    </FirebaseContextProvider>
   </>
   );
 }

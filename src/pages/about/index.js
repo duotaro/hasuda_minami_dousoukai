@@ -6,7 +6,7 @@ import Author from "../../components/parts/author/author";
 import { META_ABOUT_TITLE, META_ABOUT_DESCRIPTION } from "../../const/meta";
 import Menu from "../../components/parts/menu";
 
-export const databaseId = process.env.NEXT_PUBLIC_NOTION_DATABASE_ID;
+export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function About({  }) {
   return (
