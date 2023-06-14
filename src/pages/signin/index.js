@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { emailValidation, passwordValidation } from '../../utils/form_validation'
 import styles from '../page.module.css'
 import {initializeFirebaseApp} from '../../lib/firebase/firebase'
-import { useFirebaseContext, SET_USER, SET_FIREBASE_APP, SET_FIREBASE_AUTH, SET_LOADING } from '@/context/firebase.context';
+import { useFirebaseContext, SET_USER, SET_FIREBASE_APP, SET_FIREBASE_AUTH, SET_LOADING } from '@z/context/firebase.context';
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth';
 import Link from 'next/link';
 
