@@ -1,20 +1,22 @@
 'use client';
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useEffect } from 'react';
 import styles from '../../page.module.css'
 import {initializeFirebaseApp} from '../../../lib/firebase/firebase'
 import { useFirebaseContext, SET_MEMBER
- } from '@/context/firebase.context';
+ } from '../../../context/firebase.context';
 import { getFirestore } from 'firebase/firestore';
 import { FirebaseApp } from 'firebase/app';
 import Link from 'next/link';
-import { updateDocument, getCollection, Member, COLLECTION_NAME } from '@/lib/firebase/firestore';
+import { updateDocument, getCollection, Member, COLLECTION_NAME } from '../../../lib/firebase/firestore';
+import Layout from '../../../components/layout';
+import { useRouter } from 'next/router';
 
 
 export default function Detail(props) {
   const { state, dispatch } = useFirebaseContext()
-
+  const router = useRouter()
   const user = state.user
-  const params = props.params;
+  const params = router.query;
   if(!user || user.uid != params.id){
     return (
       <main className={`${styles.main} row`}>
@@ -49,7 +51,6 @@ export default function Detail(props) {
   ]
 
   const submit = async () => {
-    alert("clicked")
     const firebase = state.firebase || initializeFirebaseApp();
     const db = state.firestore || getFirestore(firebase);
     await updateDocument(db, COLLECTION_NAME.MEMBERS, params.id, {isParticipation: selected, answered: true})
@@ -75,7 +76,16 @@ export default function Detail(props) {
 
   }
 
+
+  useEffect(() => {
+    //window.addEventListener('DOMContentLoaded', event => {
+      const navbarCollapsible = document.body.querySelector('#mainNav');
+      navbarCollapsible.classList.add('navbar-shrink')
+    //})
+  })
+
   return (
+    <Layout>
     <main className={`${styles.main} row`}>
       <div className="col">
       <form>
@@ -108,5 +118,6 @@ export default function Detail(props) {
         </div>
       </div>
     </main>
+    </Layout>
   )
 }

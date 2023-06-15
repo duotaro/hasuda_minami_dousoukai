@@ -5,6 +5,7 @@ import { initializeFirebaseApp } from '../lib/firebase/firebase'
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Loading from "../components/loading"
+import Modal from "../components/modal";
 
 const initialState = {
   firebase: null,
@@ -12,7 +13,8 @@ const initialState = {
   firestore: null,
   user: null,
   member: [],
-  loading : false
+  loading : false,
+  modalMessage : ''
 };
 
 export const INIT_FIREBASE_APP =  'INIT_FIREBASE_APP';
@@ -24,6 +26,7 @@ export const SET_MEMBER =  'SET_MEMBER';
 export const SET_FIRESTORE = 'SET_FIRESTORE';
 export const SET_FIREBASE_AUTH = 'SET_FIREBASE_AUTH';
 export const SET_LOADING = 'SET_LOADING';
+export const SET_MODAL_MESSAGE = 'SET_MODAL_MESSAGE';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -43,6 +46,8 @@ const reducer = (state, action) => {
         return { ...state, member: action.value } 
     case SET_LOADING:
         return { ...state, loading: action.value } 
+    case SET_MODAL_MESSAGE:
+        return { ...state, modalMessage: action.value } 
     default:
         return state;
   }
@@ -103,6 +108,7 @@ export const FirebaseContextProvider = ({
           </div>
         </nav> */}
       {children}
+      <Modal />
     </FirebaseContext.Provider>
     {state.loading && <Loading></Loading>}
     </>
