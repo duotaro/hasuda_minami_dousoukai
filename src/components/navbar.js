@@ -18,7 +18,7 @@ export default function Navigation({  }) {
                     <li className="nav-item"><Link className="nav-link" href="/signin">ログイン</Link></li>
                   }
                   {isLogin &&  
-                    <li className="nav-item"><Link className="nav-link" href={`/detail/${state.user.uid}`}>回答する</Link></li>
+                    <li className="nav-item"><Link className="nav-link" href={`/mypage`}>回答する</Link></li>
                   }
                     <li className="nav-item"><Link className="nav-link" href="/list">みんなの回答</Link></li>
                 </ul>
