@@ -73,12 +73,12 @@ export default function Home({ }) {
       </header>
       <About />
       <Detail />
-        <div id="portfolio">
+        {/* <div id="portfolio">
             <div className="container-fluid p-0">
                 <div className="row g-0">
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                            <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -87,7 +87,7 @@ export default function Home({ }) {
                     </div>
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                        <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -96,7 +96,7 @@ export default function Home({ }) {
                     </div>
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -105,7 +105,7 @@ export default function Home({ }) {
                     </div>
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                        <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -114,7 +114,7 @@ export default function Home({ }) {
                     </div>
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                        <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -123,7 +123,7 @@ export default function Home({ }) {
                     </div>
                     <div className="col-lg-4 col-sm-6">
                         <a className="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img className="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                        <img className="img-fluid" src="https://via.placeholder.com/320x200" alt="..." />
                             <div className="portfolio-box-caption p-3">
                                 <div className="project-category text-white-50">Category</div>
                                 <div className="project-name">Project Name</div>
@@ -132,7 +132,7 @@ export default function Home({ }) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> */}
         <section className="page-section" id="contact">
             <div className="container px-4 px-lg-5">
                 <div className="row gx-4 gx-lg-5 justify-content-center">

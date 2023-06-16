@@ -20,7 +20,7 @@ export default function Navigation({  }) {
                   {isLogin &&  
                     <li className="nav-item"><Link className="nav-link" href={`/detail/${state.user.uid}`}>回答する</Link></li>
                   }
-                    <li className="nav-item"><Link className="nav-link" href="/list">一覧</Link></li>
+                    <li className="nav-item"><Link className="nav-link" href="/list">みんなの回答</Link></li>
                 </ul>
             </div>
         </div>

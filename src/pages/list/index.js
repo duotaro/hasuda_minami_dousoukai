@@ -54,12 +54,6 @@ const getMemberList = async (db, state, dispatch, setMemberList) => {
 }
 
 
-const getRandomUserIcon = async() => {
-  const res =  await fetch("http://api.randomuser.me/")
-  
-}
-
-
 const init = async (auth, dispatch, state, setMemberList, db) => {
   // 未ログイン
   if(!state.user) {
@@ -133,64 +127,74 @@ export default function List() {
 
   return (
     <Layout>
-      <main className={`${styles.main}`}>
-        <div className='row text-white w-100'>
-          <div className="col p-3">
-            <form>
-              <input type="text" defaultValue={search} 
-                onChange={handleSearch} 
-                placeholder='名前で検索'
-                onCompositionStart={() => {
-                  isImeOn.current = true // IME 入力中フラグを ON
-                }}
-                onCompositionEnd={(e) => {
-                  isImeOn.current = false // IME 入力中フラグを OFF
-                  handleSearch(e) // 入力確定したとき
-                }}
-                />
-            </form>
+      <main className={`${styles.main} row`}>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><Link href="/">Home</Link></li>
+            <li class="breadcrumb-item active" aria-current="page">一覧</li>
+          </ol>
+        </nav>
+        <div className="card">
+          <div className="card-body">
+            <div className='row text-white w-100'>
+              <div className="col p-3">
+                <form>
+                  <input type="text" defaultValue={search} 
+                    onChange={handleSearch} 
+                    placeholder='名前で検索'
+                    onCompositionStart={() => {
+                      isImeOn.current = true // IME 入力中フラグを ON
+                    }}
+                    onCompositionEnd={(e) => {
+                      isImeOn.current = false // IME 入力中フラグを OFF
+                      handleSearch(e) // 入力確定したとき
+                    }}
+                    />
+                </form>
+              </div>
+            </div>
+            {state.user && 
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  {/* <th scope="col">ID</th> */}
+                  <th scope="col">名前</th>
+                  <th scope="col">参加・不参加</th>
+                  <th scope="col">-</th>
+                </tr>
+              </thead>
+              <tbody>
+                {memberList && memberList.map((m) => {
+                  return (
+                    <tr key={m.id} className="align-middle">
+                      {/* <th scope="row">{m.id}</th> */}
+                      <th scope="row w-100">
+                        <img src="https://via.placeholder.com/40x40?text=userIcon" 
+                            className="rounded-circle border border-dark me-2" 
+                            style={{width:'40px', height:'40px'}} alt="usericon" />
+                        {m.name}
+                      </th>
+                      <td>{m.answered ? (m.isParticipation ? "参加" : "不参加") : "未回答"}</td>
+                      <td>
+                        { state.user && state.user.uid == m.id && <Link href="/mypage">回答する</Link> }
+                        { state.user && state.user.uid !== m.id && "-" }
+                        { !state.user && "-" }
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+            }
+            {!state.user && 
+            <div className='row text-white w-50'>
+                <div className="btn btn-primary">
+                  <Link href="/signin" className="text-white">ログインして回答する</Link>
+                </div>
+            </div>
+            }
           </div>
         </div>
-        {state.user && 
-        <table className="table table-striped">
-          <thead>
-            <tr>
-              {/* <th scope="col">ID</th> */}
-              <th scope="col">名前</th>
-              <th scope="col">参加・不参加</th>
-              <th scope="col">-</th>
-            </tr>
-          </thead>
-          <tbody>
-            {memberList && memberList.map((m) => {
-              return (
-                <tr key={m.id} className="align-middle">
-                  {/* <th scope="row">{m.id}</th> */}
-                  <th scope="row w-100">
-                    <img src="https://livedoor.blogimg.jp/worldfusigi/imgs/f/4/f448b792.jpg" 
-                        className="rounded-circle border border-dark me-2" 
-                        style={{width:'40px', height:'40px'}} alt="usericon" />
-                    {m.name}
-                  </th>
-                  <td>{m.answered ? (m.isParticipation ? "参加" : "不参加") : "未回答"}</td>
-                  <td>
-                    { state.user && state.user.uid == m.id && <Link href={{ pathname: "detail/[id]", query: {id: state.user.uid} }}>回答する</Link> }
-                    { state.user && state.user.uid !== m.id && "-" }
-                    { !state.user && "-" }
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-        }
-        {!state.user && 
-        <div className='row text-white w-50'>
-            <div className="btn btn-primary">
-              <Link href="/signin" className="text-white">ログインして回答する</Link>
-            </div>
-        </div>
-        }
       </main>
     </Layout>
   )

@@ -27,10 +27,7 @@ const signin = async (e, state, dispatch, email, password, router) => {
     if(res.user){
       dispatch({type: SET_MODAL_MESSAGE, value: 'ログインに成功しました。'})
       dispatch({type: SET_USER, value: res.user})
-      router.push({
-        pathname: '/detail/[id]',
-        query: { id: res.user.uid },
-      });
+      router.push("/mypage");
     } else {
       dispatch({type: SET_MODAL_MESSAGE, value: 'ログイン処理中にエラーが発生しました。'})
     }
@@ -82,12 +79,18 @@ export default function Signin() {
   return (
     <Layout>
     <main className={`${styles.main} row`}>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><Link href="/">Home</Link></li>
+          <li class="breadcrumb-item active" aria-current="page">Login</li>
+        </ol>
+      </nav>
       <div class="alert alert-warning mt-2" role="alert">
         IDとpasswordは事前に幹事がお送りしています。そちらを使ってログインしてください。
         ログインできない場合は幹事まで連絡してください。
       </div>
-      <div className="col">
-      <form >
+      <div className="col card p-3">
+      <form className="card-body p-3">
         <div className="mb-3">
           <label htmlFor="email" className="form-label">ID</label>
           <input type="email" className="form-control" id="email" aria-describedby="emailHelp" defaultValue={email} onChange={handleChangeEmail}/>
@@ -104,14 +107,6 @@ export default function Signin() {
         </div>
         <button type="button" className="btn btn-primary" onClick={(e) => login(e)}>ログイン</button>
       </form>
-      <div className="mt-5 container">
-            <div className="row p-1">
-              <Link href="/">トップに戻る</Link>
-            </div>
-            <div className="row p-1">
-              <Link href="/list">みんなの回答を見る</Link>
-            </div>
-        </div>
       </div>
     </main>
     </Layout>
