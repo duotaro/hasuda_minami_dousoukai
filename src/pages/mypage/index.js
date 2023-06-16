@@ -19,11 +19,7 @@ export default function Mypage() {
   let isLogin = user != null && user.uid !== process.env.NEXT_PUBLIC_ADMIN_ID
   
   let isParticipation = false
-  state.member.map((m) => {
-    if(m.id === params.id){
-      isParticipation = m.isParticipation
-    }
-  })
+
 
   /** 選択中のラジオボタンvalue */
   const [selected, setSelected] = useState(isParticipation);
@@ -80,6 +76,12 @@ export default function Mypage() {
         if(pass == process.env.NEXT_PUBLIC_ADMIN_PASSWORD){
           isLogin = true 
         }
+        state.member.map((m) => {
+          if(m.id === user.uid){
+            isParticipation = true
+            setSelected(true)
+          }
+        })
       }
 
     //})
